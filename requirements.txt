@@ -1,0 +1,7 @@
+mediapipe
+opencv-python
+numpy
+pandas
+scikit-learn
+tensorflow      # or torch, if you choose PyTorch
+flask           # or fastapi + uvicorn
