@@ -1,22 +1,16 @@
-# Use the official Python base image
-FROM python:3.11-slim
+# 1. Base image
+FROM python:3.9-slim
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
+# 2. Set working directory
+WORKDIR /usr/src/app
 
-# Set work directory
-WORKDIR /app
-
-# Install dependencies
+# 3. Install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy project files
+# 4. Copy app source
 COPY . .
 
-# Expose the port Flask runs on
+# 5. Expose port and define entrypoint
 EXPOSE 8080
-
-# Run the application
-CMD ["python", "app.py"]
+CMD [ "python", "app.py" ]

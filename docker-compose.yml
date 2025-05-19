@@ -1,0 +1,14 @@
+# docker-compose.yml
+version: "3.8"
+
+services:
+  web:
+    build: .
+    container_name: bhangra-detector
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./:/usr/src/app     # mount code for live edits
+    environment:
+      - FLASK_ENV=development
+    restart: unless-stopped
