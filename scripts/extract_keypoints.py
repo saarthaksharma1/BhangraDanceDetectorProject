@@ -10,7 +10,7 @@ import mediapipe as mp
 
 # ==== CONFIG ====
 MOVES = ["jugni", "dhamaal"]        # folder names under data/
-DATA_DIR = os.path.join(os.path.dirname(__file__), "../videodata")
+DATA_DIR = os.path.join(os.path.dirname(__file__), "../data")
 OUTPUT_EXT = ".npz"
 
 # Initialize MediaPipe

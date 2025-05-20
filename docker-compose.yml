@@ -1,26 +1,26 @@
-version: "3.8"
-
 services:
   backend:
-    build: ./backend
-    container_name: bhangra-backend
-    ports:
-      - "8090:8080"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /usr/src/app
     volumes:
-      - ./backend:/usr/src/app
+      - .:/usr/src/app
+    ports:
+      - "5000:5000"
     environment:
+      - FLASK_APP=backend/app.py
       - FLASK_ENV=development
-    restart: unless-stopped
 
-  frontend:
-    build: ./frontend
-    container_name: bhangra-frontend
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
-    environment:
-      - CHOKIDAR_USEPOLLING=true
-    stdin_open: true
-    tty: true
+  # frontend:
+  #   build: ./frontend
+  #   container_name: bhangra-frontend
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - ./frontend:/app
+  #     - /app/node_modules
+  #   environment:
+  #     - CHOKIDAR_USEPOLLING=true
+  #   stdin_open: true
+  #   tty: true
